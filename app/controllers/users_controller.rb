@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    add_breadcrumb I18n.t("helpers.submit.create", model: Booking.model_name.human)
   end
 
   # GET /users/new

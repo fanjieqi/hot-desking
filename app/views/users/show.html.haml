@@ -1,6 +1,10 @@
-.row
-  %dt.col-1.bg-faded Id
-  %dd.col-3= @user.id
-.row
-  %dt.col-1.bg-faded= User.human_attribute_name(:email)
-  %dd.col-3= @user.email
+.col-xl-4.col-lg-4.col-md-3.col-sm-2
+.col-xl-4.col-lg-4.col-md-6.col-sm-8.col-xs-12.mx-auto
+  .card
+    .card-header
+      %h4.text-center Staff Details
+    .card-body
+      - %w(id email name seat_name start_at end_at).each do |key|
+        .row
+          %dt.col-xl-4.col-lg-4.col-md-5.col-sm-6.col-xs-6.bg-faded= User.human_attribute_name(key)
+          %dd.col-xl-8.col-lg-8.col-md-7.col-sm-6.col-xs-6= @user.try(key)
