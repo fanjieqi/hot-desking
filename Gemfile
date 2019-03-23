@@ -41,6 +41,32 @@ gem 'devise', '~> 4.6', '>= 4.6.1'
 
 gem 'haml-rails', '~> 1.0'
 
+# This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+
+# The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web. http://getbootstrap.com
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+
+# Kaminari is a Scope & Engine based, clean, powerful, agnostic, customizable and sophisticated paginator for Rails 4+
+gem 'kaminari', '~> 0.17'
+# Bootstrap 4 styling for Kaminari gem
+gem 'bootstrap4-kaminari-views', '~> 1.0'
+
+# bootstrap_form is a rails form builder that makes it super easy to create beautiful-looking forms using Bootstrap 4
+gem 'bootstrap_form', '~> 4.2'
+
+# A date picker for Twitter Bootstrap
+gem 'bootstrap-datepicker-rails', '~> 1.8', '>= 1.8.0.1'
+
+# BreadcrumbsOnRails is a simple Ruby on Rails plugin for creating and managing a breadcrumb navigation for a Rails project.
+gem 'breadcrumbs_on_rails', '~> 3.0', '>= 3.0.1'
+
+# Ruby on Rails data listing gem with built-in sorting, filtering and in-place editing.
+gem 'smart_listing', '~> 1.2', '>= 1.2.2'
+
+# A set of common locale data and translations to internationalize and/or localize your Rails applications.
+gem 'rails-i18n', '~> 5.1', '>= 5.1.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  path:
+    Users: Users
+    Seats: Seats
+    Bookings: Bookings

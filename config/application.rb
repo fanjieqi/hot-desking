@@ -19,5 +19,7 @@ module HotDesking
     config.generators do |g|
       g.template_engine :haml
     end
+
+    config.i18n.available_locales = [:en]
   end
 end
