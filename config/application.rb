@@ -20,6 +20,6 @@ module HotDesking
       g.template_engine :haml
     end
 
-    config.i18n.available_locales = [:en]
+    config.i18n.available_locales = [:en, "zh-CN"]
   end
 end

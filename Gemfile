@@ -70,6 +70,12 @@ gem 'rails-i18n', '~> 5.1', '>= 5.1.3'
 # font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 
+# Moment.js is a lightweight javascript date library for parsing, manipulating, and formatting dates. This gem allows for its easy inclusion into the rails asset pipeline.
+gem 'momentjs-rails', '~> 2.20', '>= 2.20.1'
+
+# Gem allows to use `flag-icon-css` - a collection of all country flags in SVG - in your Rails projects
+gem 'flag-icons-rails', '~> 3.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

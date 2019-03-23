@@ -18,3 +18,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require smart_listing
+//= require moment
+//= require moment/zh-cn.js
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.js
