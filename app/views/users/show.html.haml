@@ -1,0 +1,6 @@
+.row
+  %dt.col-1.bg-faded Id
+  %dd.col-3= @user.id
+.row
+  %dt.col-1.bg-faded= User.human_attribute_name(:email)
+  %dd.col-3= @user.email

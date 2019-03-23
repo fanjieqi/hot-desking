@@ -8,7 +8,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   port: 3306
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 10 } %>
   username: <%= ENV.fetch("USERNAME") {'root'} %>
   password: <%= ENV.fetch("PASSWORD") {'root'} %>
   timeout: 5000

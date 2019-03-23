@@ -1,0 +1,18 @@
+- unless smart_listing.empty?
+  %table.table.table-hover
+    %thead
+      %tr
+        %th.hidden-sm-down= smart_listing.sortable "Id", :id
+        %th= smart_listing.sortable User.human_attribute_name(:email), :email
+        %th= t("operations")
+
+    %tbody
+      - smart_listing.collection.each do |user|
+        %tr.editable{data: {id: user.id}}
+          = smart_listing.render user: user, partial: "user", locals: {:@user => user}
+
+      = smart_listing.item_new colspan: 13, link: new_user_path, text: t('helpers.submit.create', model: User.model_name.human)
+  .row.justify-content-center= smart_listing.paginate
+  = smart_listing.pagination_per_page_links
+- else
+  .alert.alert-warning= t("messages.no_records")
