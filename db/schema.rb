@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_23_083354) do
+ActiveRecord::Schema.define(version: 2019_03_23_132433) do
 
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "seat_id", null: false
     t.date "start_at", null: false
     t.date "end_at", null: false
+    t.boolean "is_past"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["seat_id"], name: "index_bookings_on_seat_id"

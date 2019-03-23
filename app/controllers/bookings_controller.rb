@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy, :custom]
 
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = smart_listing_create(:bookings, Booking.all, partial: "bookings/listing")
+    @bookings = smart_listing_create(:bookings, Booking.includes(:seat, :user).where(user_id: current_user.id), partial: "bookings/listing")
   end
 
   # GET /bookings/1
@@ -44,6 +44,10 @@ class BookingsController < ApplicationController
   # DELETE /bookings/1.json
   def destroy
     @booking.destroy
+  end
+
+  def custom
+    @booking.update_attributes(is_past: true)
   end
 
   private

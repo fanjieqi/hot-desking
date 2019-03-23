@@ -4,4 +4,4 @@
   %td.hidden-md-down= @booking.seat_name
   %td.hidden-md-down= @booking.start_at
   %td.hidden-md-down= @booking.end_at
-  %td.actions= smart_listing_item_actions [ {name: :show, url: booking_path(@booking)}, {name: :edit, url: edit_booking_path(@booking)}, {name: :destroy, url: booking_path(@booking)}]
+  %td.actions= smart_listing_item_actions [ {name: :custom, url: custom_booking_path(@booking), method: :patch, icon: "fa fa-check fa-2x btn btn-success", remote: true, if: !@booking.is_past?}, {name: :show, url: booking_path(@booking)}, {name: :edit, url: edit_booking_path(@booking)}, {name: :destroy, url: booking_path(@booking)}]
