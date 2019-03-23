@@ -1,1 +1,1 @@
-= smart_listing_item :seats, :create, @seat, "seats/form"
+= smart_listing_item :seats, :create, @seat, @seat.valid? ? "seats/seat" : "seats/form"
