@@ -1,29 +1,32 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  %a.navbar-brand{:href => "#"}= I18n.t("path.Home")
+  %a.navbar-brand{:href => "#"}= fa_icon :home, text: :Home
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
       = active_link_to users_path, class: "nav-link", wrap_tag: :li, wrap_class: 'nav-item' do
         .row.mx-auto
-          .hidden-md-only= t("path.users")
+          .hidden-md-only= User.model_name.human.pluralize
       = active_link_to seats_path, class: "nav-link", wrap_tag: :li, wrap_class: 'nav-item' do
         .row.mx-auto
-          .hidden-md-only= t("path.seats")
+          .hidden-md-only= Seat.model_name.human.pluralize
       = active_link_to bookings_path, class: "nav-link", wrap_tag: :li, wrap_class: 'nav-item' do
         .row.mx-auto
-          .hidden-md-only= t("path.bookings")
+          .hidden-md-only= Booking.model_name.human.pluralize
+    
     %ul.navbar-nav.ml-auto.mr-4
-      %li.nav-item.dropdown{"data-toggle" => "tooltip", "data-placement" => "bottom", title: "Lang"}
-        %a#navbarDropdownMenuLink{"data-toggle" => "dropdown", "aria-haspopup" => true, "aria-expanded" => false}
-          = fa_icon "language", class: "pt-2"
-        .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "navbarDropdownMenuLink"}
-          = link_to params.permit(:utf8, :keyword).merge(lang: "zh-CN"), class: "dropdown-item" do
-            = flag_icon(:cn)
-            简体中文
-          = link_to params.permit(:utf8, :keyword).merge(lang: :en), class: "dropdown-item" do
-            = flag_icon(:gb)
-            English
+      - cache ["language-selection", I18n.locale], expires_in: 1.week do
+        %li.nav-item.dropdown{"data-toggle" => "tooltip", "data-placement" => "bottom", title: "Lang"}
+          %a#navbarDropdownMenuLink{"data-toggle" => "dropdown", "aria-haspopup" => true, "aria-expanded" => false}
+            = fa_icon "language", class: "pt-2"
+          .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "navbarDropdownMenuLink"}
+            - Rails.application.config.i18n.available_locales.each do |lang|
+              - code = lang.gsub(/.+\-/, '')
+              - if I18n.exists?("countries.#{code.upcase}", :en)
+                = link_to params.permit(:utf8, :keyword, :lang).merge(lang: lang), class: "dropdown-item" do
+                  = flag_icon(code.downcase)
+                  = I18n.t(code.upcase, scope: :countries)
+
     %form.form-inline.my-2.my-lg-0
       %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
       %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search

@@ -82,6 +82,15 @@ gem 'redis-rails', '~> 5.0', '>= 5.0.2'
 # Helpful method when you need to add some logic that figures out if the link (or more often navigation item) is selected based on the current page or other arbitrary condition
 gem 'active_link_to', '~> 1.0', '>= 1.0.5'
 
+# Translations for the devise gem
+gem 'devise-i18n', '~> 1.8'
+
+# ISO country code and currency library
+gem 'iso_country_codes', '~> 0.7.8'
+
+# The purpose of this gem is to simply provide country translations. The gem is intended to be easy to combine with other gems that require i18n country translations so we can have common i18n country translation gem.
+gem 'i18n-country-translations', '~> 1.3', '>= 1.3.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
