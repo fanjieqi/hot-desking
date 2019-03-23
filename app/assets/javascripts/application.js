@@ -22,3 +22,7 @@
 //= require moment/zh-cn.js
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.js
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});

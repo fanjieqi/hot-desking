@@ -13,9 +13,9 @@
         .row.mx-auto
           .hidden-md-only= Booking.model_name.human.pluralize
     
-    %ul.navbar-nav.ml-auto.mr-4
+    %ul.navbar-nav.ml-auto
       - cache ["language-selection", I18n.locale], expires_in: 1.week do
-        %li.nav-item.dropdown{"data-toggle" => "tooltip", "data-placement" => "bottom", title: "Lang"}
+        %li.nav-item.mr-4.dropdown{"data-toggle" => "tooltip", "data-placement" => "bottom", title: "Lang"}
           %a#navbarDropdownMenuLink{"data-toggle" => "dropdown", "aria-haspopup" => true, "aria-expanded" => false}
             = fa_icon "language", class: "pt-2"
           .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "navbarDropdownMenuLink"}
@@ -26,7 +26,13 @@
                   = flag_icon(code.downcase)
                   = I18n.t(code.upcase, scope: :countries)
       - if user_signed_in?
-        %li.nav-item.ml-2{"data-toggle" => "tooltip", "data-placement" => "bottom", title: "Logout"}
+        %li.nav-item.mr-4{"data-toggle" => "tooltip", "data-placement" => "bottom", title: "Logout"}
           = link_to destroy_user_session_path, method: :delete, style: "color: inherit;" do
             = fa_icon "sign-out", class: "pt-2"
-      %li.nav-item.ml-1= render "layouts/search_form"
+      %li.nav-item= render "layouts/search_form"
+
+:css
+  .dropdown-menu{
+      max-height: 20rem;
+      overflow-y:auto;
+   }
