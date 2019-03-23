@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = smart_listing_create(:users, User.includes(:booking, :seat), partial: "users/listing")
+    @users = smart_listing_create(:users, User.includes(:booking, :seat).search_by_keyword(params[:keyword]), partial: "users/listing")
   end
 
   # GET /users/1

@@ -9,4 +9,6 @@ class User < ApplicationRecord
 
   has_one :booking, -> { order(end_at: :desc) }
   has_one :seat, through: :booking
+
+  scope :search_by_keyword, -> keyword { where("users.name like ? or users.email like ?", "%#{keyword}%", "%#{keyword}%") if keyword.present? }
 end

@@ -14,7 +14,7 @@
     - else
       .alert.alert-warning= t("messages.no_records")
 
-    = smart_listing.item_new colspan: 13, link: new_seat_path, text: t('helpers.submit.create', model: Seat.model_name.human)
+    = smart_listing.item_new colspan: 3, link: new_seat_path, text: t('helpers.submit.create', model: Seat.model_name.human)
 
 - cache ["pagination", I18n.locale, smart_listing.collection, Seat.all.size], expires_in: 1.week do
   .row.justify-content-center= smart_listing.paginate

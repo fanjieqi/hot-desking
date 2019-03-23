@@ -11,7 +11,7 @@ class SeatsController < ApplicationController
   # GET /seats
   # GET /seats.json
   def index
-    @seats = smart_listing_create(:seats, Seat.all, partial: "seats/listing")
+    @seats = smart_listing_create(:seats, Seat.search_by_keyword(params[:keyword]), partial: "seats/listing")
   end
 
   # GET /seats/1
