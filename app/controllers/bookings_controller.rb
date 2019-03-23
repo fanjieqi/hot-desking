@@ -31,8 +31,14 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @booking = Booking.create(booking_params.merge(user_id: current_user.id))
-    redirect_to action: :index
+    @booking = Booking.new(booking_params.merge(user_id: current_user.id))
+    respond_to do |format|
+      if @booking.save
+        format.html { redirect_to action: :index, notice: 'Booking was successfully created.' }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   # PATCH/PUT /bookings/1

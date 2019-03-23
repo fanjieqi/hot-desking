@@ -18,8 +18,6 @@
     - else
       .alert.alert-warning= t("messages.no_records")
 
-    = smart_listing.item_new colspan: 7, link: new_booking_path, text: t('helpers.submit.create', model: Booking.model_name.human)
-
 - cache ["pagination", I18n.locale, smart_listing.collection, Booking.all.size], expires_in: 1.week do
   .row.justify-content-center= smart_listing.paginate
   = smart_listing.pagination_per_page_links
