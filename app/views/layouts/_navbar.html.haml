@@ -1,19 +1,18 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  %a.navbar-brand{:href => "#"} Navbar
+  %a.navbar-brand{:href => "#"}= I18n.t("path.Home")
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
-      %li.nav-item.active
-        %a.nav-link{:href => "#"}
-          Home
-          %span.sr-only (current)
-      %li.nav-item
-        = link_to I18n.t("path.Users"), users_path, class: "nav-link"
-      %li.nav-item
-        = link_to I18n.t("path.Seats"), seats_path, class: "nav-link"
-      %li.nav-item
-        = link_to I18n.t("path.Bookings"), bookings_path, class: "nav-link"
+      = active_link_to users_path, class: "nav-link", wrap_tag: :li, wrap_class: 'nav-item' do
+        .row.mx-auto
+          .hidden-md-only= t("path.users")
+      = active_link_to seats_path, class: "nav-link", wrap_tag: :li, wrap_class: 'nav-item' do
+        .row.mx-auto
+          .hidden-md-only= t("path.seats")
+      = active_link_to bookings_path, class: "nav-link", wrap_tag: :li, wrap_class: 'nav-item' do
+        .row.mx-auto
+          .hidden-md-only= t("path.bookings")
     %ul.navbar-nav.ml-auto.mr-4
       %li.nav-item.dropdown{"data-toggle" => "tooltip", "data-placement" => "bottom", title: "Lang"}
         %a#navbarDropdownMenuLink{"data-toggle" => "dropdown", "aria-haspopup" => true, "aria-expanded" => false}

@@ -79,6 +79,9 @@ gem 'flag-icons-rails', '~> 3.1'
 # Redis for Ruby on Rails
 gem 'redis-rails', '~> 5.0', '>= 5.0.2'
 
+# Helpful method when you need to add some logic that figures out if the link (or more often navigation item) is selected based on the current page or other arbitrary condition
+gem 'active_link_to', '~> 1.0', '>= 1.0.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
