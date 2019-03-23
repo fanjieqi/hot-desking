@@ -1,5 +1,5 @@
 %td{colspan: 7}
-  = bootstrap_form_for(@booking, layout: :horizontal, label_col: "col-lg-1 col-md-2 offset-lg-3 offset-md-1", control_col: "col-lg-5 col-md-8", method: @form_method, remote: true) do |f|
+  = bootstrap_form_for(@booking, layout: :horizontal, label_col: "col-lg-1 col-md-2 offset-lg-3 offset-md-1", control_col: "col-lg-5 col-md-8", method: @form_method, remote: action_name != "new") do |f|
     = f.alert_message t('errors.template.header', model: Booking.model_name.human, count: @booking.errors.count)
     = f.hidden_field :user_id
     = f.select :seat_id, Seat.pluck(:name, :id)
@@ -9,7 +9,10 @@
     %br
     = f.form_group do
       = f.submit class: "btn btn-success"
-      %button.btn.btn-link.cancel= t("helpers.cancel")
+      - if action_name != "new"
+        %button.btn.btn-link.cancel= t("helpers.cancel")
+      - else
+        = link_to "Back", :back, class: "btn btn-link"
 
 :javascript
   $('.datepicker').datepicker({

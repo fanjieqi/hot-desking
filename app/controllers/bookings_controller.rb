@@ -32,6 +32,7 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.create(booking_params.merge(user_id: current_user.id))
+    redirect_to action: :index
   end
 
   # PATCH/PUT /bookings/1
