@@ -26,6 +26,9 @@
                   = flag_icon(code.downcase)
                   = I18n.t(code.upcase, scope: :countries)
       - if user_signed_in?
+        %li.nav-item.mr-4{"data-toggle" => "tooltip", "data-placement" => "bottom", title: "Profile"}
+          = link_to edit_user_registration_path, style: "color: inherit;" do
+            = fa_icon "user", class: "pt-2"
         %li.nav-item.mr-4{"data-toggle" => "tooltip", "data-placement" => "bottom", title: "Logout"}
           = link_to destroy_user_session_path, method: :delete, style: "color: inherit;" do
             = fa_icon "sign-out", class: "pt-2"
