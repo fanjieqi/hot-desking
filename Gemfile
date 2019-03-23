@@ -67,6 +67,9 @@ gem 'smart_listing', '~> 1.2', '>= 1.2.2'
 # A set of common locale data and translations to internationalize and/or localize your Rails applications.
 gem 'rails-i18n', '~> 5.1', '>= 5.1.3'
 
+# font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
