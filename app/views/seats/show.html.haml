@@ -1,6 +1,6 @@
-%p#notice= notice
-
-
-= link_to 'Edit', edit_seat_path(@seat)
-\|
-= link_to 'Back', seats_path
+.row
+  %dt.col-1.bg-faded Id
+  %dd.col-3= @seat.id
+.row
+  %dt.col-1.bg-faded= Seat.human_attribute_name(:name)
+  %dd.col-3= @seat.name

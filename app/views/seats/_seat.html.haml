@@ -1,0 +1,4 @@
+- cache [@seat.cache_key, I18n.locale], expires_in: 1.week, cached: true do
+  %td.hidden-sm-down= @seat.id
+  %td.hidden-md-down= @seat.name
+  %td.actions= smart_listing_item_actions [ {name: :show, url: seat_path(@seat)}, {name: :edit, url: edit_seat_path(@seat)}, {name: :destroy, url: seat_path(@seat)}]

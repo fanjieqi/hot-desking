@@ -1,0 +1,18 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th.hidden-sm-down= smart_listing.sortable "Id", :id
+      %th= smart_listing.sortable Seat.human_attribute_name(:name), :name
+      %th= t("operations")
+
+  %tbody
+    - unless smart_listing.empty?
+      - smart_listing.collection.each do |seat|
+        %tr.editable{data: {id: seat.id}}
+          = smart_listing.render seat: seat, partial: "seat", locals: {:@seat => seat}
+    - else
+      .alert.alert-warning= t("messages.no_records")
+
+    = smart_listing.item_new colspan: 13, link: new_seat_path, text: t('helpers.submit.create', model: Seat.model_name.human)
+.row.justify-content-center= smart_listing.paginate
+= smart_listing.pagination_per_page_links
