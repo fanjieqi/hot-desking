@@ -1,7 +1,7 @@
-%td{colspan: 6}
+%td{colspan: 7}
   = bootstrap_form_for(@booking, layout: :horizontal, label_col: "col-lg-1 col-md-2 offset-lg-3 offset-md-1", control_col: "col-lg-5 col-md-8", method: @form_method, remote: true) do |f|
     = f.alert_message t('errors.template.header', model: Booking.model_name.human, count: @booking.errors.count)
-    = f.select :user_id, User.pluck(:name, :id)
+    = f.hidden_field :user_id
     = f.select :seat_id, Seat.pluck(:name, :id)
     = f.text_field :start_at, class: 'datepicker'
     = f.text_field :end_at, class: 'datepicker'

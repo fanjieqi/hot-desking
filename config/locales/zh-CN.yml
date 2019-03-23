@@ -1,0 +1,5 @@
+zh-CN:
+  activerecord:
+    attributes:
+      booking:
+        past: 通过

@@ -36,3 +36,7 @@ en:
     Users: Users
     Seats: Seats
     Bookings: Bookings
+  activerecord:
+    attributes:
+      booking:
+        past: Past

@@ -50,7 +50,7 @@ SmartListing.configure do |config|
     :icon_sort_none        => "fa fa-arrows-v",
     :icon_sort_up          => "fa fa-long-arrow-up",
     :icon_sort_down        => "fa fa-long-arrow-down",
-    #:muted                 => "text-muted",
+    :muted                 => "d-none",
   }
 
   config.constants :data_attributes, {

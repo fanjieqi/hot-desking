@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @booking = Booking.create(booking_params)
+    @booking = Booking.create(booking_params.merge(user_id: current_user.id))
   end
 
   # PATCH/PUT /bookings/1
