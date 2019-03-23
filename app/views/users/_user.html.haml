@@ -1,3 +1,4 @@
 %td.hidden-sm-down= @user.id
 %td.hidden-md-down= @user.email
+%td.hidden-md-down= @user.name
 %td.actions= smart_listing_item_actions [ {name: :show, url: user_path(@user)}, {name: :edit, url: edit_user_path(@user)}, {name: :destroy, url: user_path(@user)}]

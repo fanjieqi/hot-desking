@@ -1,4 +1,7 @@
 - cache [@booking.cache_key, I18n.locale], expires_in: 1.week, cached: true do
   %td.hidden-sm-down= @booking.id
-  %td.hidden-md-down= @booking.name
+  %td.hidden-md-down= @booking.user_name
+  %td.hidden-md-down= @booking.seat_name
+  %td.hidden-md-down= @booking.start_at
+  %td.hidden-md-down= @booking.end_at
   %td.actions= smart_listing_item_actions [ {name: :show, url: booking_path(@booking)}, {name: :edit, url: edit_booking_path(@booking)}, {name: :destroy, url: booking_path(@booking)}]

@@ -1,7 +1,8 @@
-%td{colspan: 3}
+%td{colspan: 4}
   = bootstrap_form_for(@user, layout: :horizontal, label_col: "col-lg-1 col-md-2 offset-lg-3 offset-md-1", control_col: "col-lg-5 col-md-8", method: @form_method, remote: true) do |f|
     = f.alert_message t('errors.template.header', model: User.model_name.human, count: @user.errors.count)
     = f.email_field :email, wrapper_class: "row", required: true
+    = f.text_field :name, wrapper_class: "row", required: true
 
     %br
     = f.form_group do
