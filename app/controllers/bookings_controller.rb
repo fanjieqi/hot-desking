@@ -4,6 +4,10 @@ class BookingsController < ApplicationController
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
 
+  before_action do
+    add_breadcrumb Booking.model_name.human.pluralize.downcase, :users_path
+  end
+
   # GET /bookings
   # GET /bookings.json
   def index

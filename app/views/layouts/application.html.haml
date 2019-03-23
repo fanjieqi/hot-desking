@@ -11,5 +11,7 @@
     = hidden_field_tag "language", I18n.locale, { id: "language" }
     = render 'layouts/navbar'
     .container-fluid
+      - if breadcrumbs.present? && controller_name != 'welcome'
+        %ol.breadcrumb.my-4= render_breadcrumbs separator: '<span class="mx-2">  /  </span>'
       = render "layouts/notice_alert"
       = yield

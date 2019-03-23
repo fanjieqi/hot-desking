@@ -11,5 +11,7 @@ class ApplicationController < ActionController::Base
   before_action do
     session[:locale] = params[:lang] if params[:lang]
     I18n.locale = session[:locale]
+
+    add_breadcrumb I18n.t("path.home", default: "Home"), :root_path
   end
 end

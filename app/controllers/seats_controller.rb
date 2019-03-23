@@ -4,6 +4,10 @@ class SeatsController < ApplicationController
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
 
+  before_action do
+    add_breadcrumb Seat.model_name.human.pluralize.downcase, :users_path
+  end
+
   # GET /seats
   # GET /seats.json
   def index
