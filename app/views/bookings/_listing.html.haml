@@ -1,0 +1,21 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th.hidden-sm-down= smart_listing.sortable "Id", :id
+      %th= smart_listing.sortable Booking.human_attribute_name(:user_name), :user_name
+      %th= smart_listing.sortable Booking.human_attribute_name(:seat_name), :seat_name
+      %th= smart_listing.sortable Booking.human_attribute_name(:start_at), :start_at
+      %th= smart_listing.sortable Booking.human_attribute_name(:end), :end
+      %th= t("operations")
+
+  %tbody
+    - unless smart_listing.empty?
+      - smart_listing.collection.each do |booking|
+        %tr.editable{data: {id: booking.id}}
+          = smart_listing.render booking: booking, partial: "booking", locals: {:@booking => booking}
+    - else
+      .alert.alert-warning= t("messages.no_records")
+
+    = smart_listing.item_new colspan: 13, link: new_booking_path, text: t('helpers.submit.create', model: Booking.model_name.human)
+  .row.justify-content-center= smart_listing.paginate
+  = smart_listing.pagination_per_page_links

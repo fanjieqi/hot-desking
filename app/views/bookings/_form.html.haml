@@ -1,10 +1,20 @@
-= form_for @booking do |f|
-  - if @booking.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@booking.errors.count, "error")} prohibited this booking from being saved:"
-      %ul
-        - @booking.errors.full_messages.each do |message|
-          %li= message
+%td{colspan: 6}
+  = bootstrap_form_for(@booking, layout: :horizontal, label_col: "col-lg-1 col-md-2 offset-lg-3 offset-md-1", control_col: "col-lg-5 col-md-8", method: @form_method, remote: true) do |f|
+    = f.alert_message t('errors.template.header', model: Booking.model_name.human, count: @booking.errors.count)
+    = f.select :user_id, User.pluck(:email, :id)
+    = f.select :seat_id, Seat.pluck(:name, :id)
+    = f.text_field :start_at, class: 'datepicker'
+    = f.text_field :end_at, class: 'datepicker'
 
-  .actions
-    = f.submit 'Save'
+    %br
+    = f.form_group do
+      = f.submit class: "btn btn-success"
+      %button.btn.btn-link.cancel= t("helpers.cancel")
+
+:javascript
+  $('.datepicker').datepicker({
+    language: $('#language').val(),
+    format: "yyyy-mm-dd",
+    startDate: moment().format("YYYY-MM-DD"),
+    todayHighlight: true,
+  });
