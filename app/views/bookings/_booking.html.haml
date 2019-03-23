@@ -5,4 +5,4 @@
   %td.hidden-md-down= @booking.start_at
   %td.hidden-md-down= @booking.end_at
   %td.hidden-md-down= @booking.is_past? ? Booking.human_attribute_name(:past) : nil
-  %td.actions= smart_listing_item_actions [ {name: :custom, url: custom_booking_path(@booking), method: :patch, icon: "fa fa-check fa-2x btn btn-success", remote: true, if: !@booking.is_past? && current_user.is_admin?}, {name: :show, url: booking_path(@booking)}, {name: :edit, url: edit_booking_path(@booking)}, {name: :destroy, url: booking_path(@booking)}]
+  %td.actions= smart_listing_item_actions [ {name: :custom, url: custom_booking_path(@booking), method: :patch, icon: "fa fa-check fa-2x btn btn-success", remote: true, if: !@booking.is_past? && current_user.is_admin?}, {name: :show, url: booking_path(@booking)}, {name: :edit, url: edit_booking_path(@booking), if: !@booking.is_past?}, {name: :destroy, url: booking_path(@booking), if: !@booking.is_past?}]
