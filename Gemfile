@@ -76,6 +76,9 @@ gem 'momentjs-rails', '~> 2.20', '>= 2.20.1'
 # Gem allows to use `flag-icon-css` - a collection of all country flags in SVG - in your Rails projects
 gem 'flag-icons-rails', '~> 3.1'
 
+# Redis for Ruby on Rails
+gem 'redis-rails', '~> 5.0', '>= 5.0.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

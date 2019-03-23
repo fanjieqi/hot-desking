@@ -21,5 +21,7 @@ module HotDesking
     end
 
     config.i18n.available_locales = [:en, "zh-CN"]
+
+    config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 1.week }
   end
 end

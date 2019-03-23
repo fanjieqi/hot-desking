@@ -7,12 +7,15 @@
 
   %tbody
     - unless smart_listing.empty?
-      - smart_listing.collection.each do |seat|
-        %tr.editable{data: {id: seat.id}}
-          = smart_listing.render seat: seat, partial: "seat", locals: {:@seat => seat}
+      - cache [smart_listing.collection.cache_key, I18n.locale], expires_in: 1.week do
+        - smart_listing.collection.each do |seat|
+          %tr.editable{data: {id: seat.id}}
+            = smart_listing.render seat: seat, partial: "seat", locals: {:@seat => seat}
     - else
       .alert.alert-warning= t("messages.no_records")
 
     = smart_listing.item_new colspan: 13, link: new_seat_path, text: t('helpers.submit.create', model: Seat.model_name.human)
-.row.justify-content-center= smart_listing.paginate
-= smart_listing.pagination_per_page_links
+
+- cache ["pagination", I18n.locale, smart_listing.collection, Seat.all.size], expires_in: 1.week do
+  .row.justify-content-center= smart_listing.paginate
+  = smart_listing.pagination_per_page_links
