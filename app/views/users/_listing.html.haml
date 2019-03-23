@@ -4,6 +4,9 @@
       %th.hidden-sm-down= smart_listing.sortable "Id", :id
       %th= smart_listing.sortable User.human_attribute_name(:email), :email
       %th= smart_listing.sortable User.human_attribute_name(:name), :name
+      %th= User.human_attribute_name(:seat_name)
+      %th= Booking.human_attribute_name(:start_at)
+      %th= Booking.human_attribute_name(:end_at)
       %th= t("operations")
 
   %tbody

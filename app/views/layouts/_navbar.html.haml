@@ -6,9 +6,6 @@
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
-      = active_link_to users_path, class: "nav-link", wrap_tag: :li, wrap_class: 'nav-item' do
-        .row.mx-auto
-          .hidden-md-only= User.model_name.human.pluralize
       = active_link_to seats_path, class: "nav-link", wrap_tag: :li, wrap_class: 'nav-item' do
         .row.mx-auto
           .hidden-md-only= Seat.model_name.human.pluralize

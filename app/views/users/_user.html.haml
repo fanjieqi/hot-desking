@@ -1,4 +1,7 @@
 %td.hidden-sm-down= @user.id
 %td.hidden-md-down= @user.email
 %td.hidden-md-down= @user.name
+%td.hidden-md-down= @user.seat.name
+%td.hidden-md-down= @user.booking.start_at
+%td.hidden-md-down= @user.booking.end_at
 %td.actions= smart_listing_item_actions [ {name: :show, url: user_path(@user)}, {name: :edit, url: edit_user_path(@user)}, {name: :destroy, url: user_path(@user)}]

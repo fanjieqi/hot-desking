@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :bookings
+  has_many :seats, through: :bookings
+
+  has_one :booking, -> { order(end_at: :desc) }
+  has_one :seat, through: :booking
 end

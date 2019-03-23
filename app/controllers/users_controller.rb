@@ -4,14 +4,10 @@ class UsersController < ApplicationController
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
 
-  before_action do
-    add_breadcrumb User.model_name.human.pluralize.downcase, :users_path
-  end
-
   # GET /users
   # GET /users.json
   def index
-    @users = smart_listing_create(:users, User.all, partial: "users/listing")
+    @users = smart_listing_create(:users, User.includes(:booking, :seat), partial: "users/listing")
   end
 
   # GET /users/1
