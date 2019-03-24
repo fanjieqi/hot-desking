@@ -10,6 +10,7 @@ Hot-desk app is an app to allow staff to book their desks and find where their c
 5.2.2.1
 
 * System dependencies
+
 |Dependencies|port|username|password|
 |---|---|---|---|
 |mysql|3306|root|root|
